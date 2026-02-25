@@ -45,7 +45,7 @@ int main()
 
      while (true)
      {
-        cout << "1.Top Value." << endl;
+        cout << "1.Push Value." << endl;
         cout << "2.Pop Value." << endl;
         cout << "3.Display All." << endl;
         cout << "4.Exit." << endl;
@@ -71,6 +71,7 @@ int main()
         else if (number == 4)
         {
             cout << "Exit Successfully from the system." << endl;
+             break;
         }
         else {
             cout << "Enter Correct Choice." << endl;
@@ -78,3 +79,4 @@ int main()
      }
     return 0;
  }
+
