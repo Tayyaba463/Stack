@@ -59,7 +59,7 @@ int main () {
         switch (num)
         {
         case 1:
-           cout << "Enter value ." << endl;
+           cout << "Enter value . " ;
            cin >> value;
            topValue(value);
             break;
@@ -80,4 +80,5 @@ int main () {
     }
 
 }
+
 
