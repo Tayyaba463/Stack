@@ -4,41 +4,40 @@ using namespace std;
 #define totalCapacity 10
 int top = 0;
 int pop;
-int size = 0;
 int arr[totalCapacity];
 
 
 void topValue (int value) {
-    if (size == totalCapacity) {
+    if (top == totalCapacity) {
         cout << "StackOverFlow !" << endl;
         return;
     }
 
-    arr[size] = value;
-    size++;
+    arr[top] = value;
+    top++;
 
     cout << "Value Enter SuccessFully." << endl;
 } 
 
 
 void popValue() {
-    if (size == 0) {
+    if (top == 0) {
         cout << "Stack is empty. " << endl;
         return;
     }
 
-    size--;
+    top--;
     cout << "Value has been Removed Successfully." << endl;
 }
 
 void displayAll() {
-    if (size == 0) {
+    if (top == 0) {
         cout << "Stack is Empty." << endl;
         return;
     }
 
       cout << "Stack Elements.";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < top; i++) {
         cout << arr[i] << " ";
     }
 
@@ -81,3 +80,4 @@ int main () {
     }
 
 }
+
