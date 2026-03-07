@@ -1,82 +1,83 @@
 #include <iostream>
 using namespace std;
+ 
+#define totalCapacity 10
+int top = 0;
+int pop;
+int size = 0;
+int arr[totalCapacity];
 
-int top = -1;
-int totalcapacity = 10;
-int *arr;
 
-
- void push (int value)
-{
-    if (top == totalcapacity - 1)
-    {
-        cout << "Stack Overflow. "<< endl;
+void topValue (int value) {
+    if (size == totalCapacity) {
+        cout << "StackOverFlow !" << endl;
         return;
     }
-    arr[++top] = value;
-}
 
-int pop () {
-    
-    if (top == -1)
-    {
-        cout << "Stack Underflow." << endl;
-        return -1;
+    arr[size] = value;
+    size++;
+
+    cout << "Value Enter SuccessFully." << endl;
+} 
+
+
+void popValue() {
+    if (size == 0) {
+        cout << "Stack is empty. " << endl;
+        return;
     }
 
-    return arr[top--];
+    size--;
+    cout << "Value has been Removed Successfully." << endl;
 }
 
-void display ()
-{ 
-    for (int i = 0; i <= top; i++)
-    {
+void displayAll() {
+    if (size == 0) {
+        cout << "Stack is Empty." << endl;
+        return;
+    }
+
+      cout << "Stack Elements.";
+    for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
 
     cout << endl;
 }
-int main()
- { 
+int main () {
+  
+    int num, value;
+    
+    while (true) {
+        
+        cout << "1. Top Value." << endl;
+        cout << "2. Pop Value." << endl;
+        cout << "3. Display All." << endl;
+        cout << "4. Exit." << endl;
 
-     arr = new int [totalcapacity];
+        cin >> num;
 
-    int number, value;
-
-     while (true)
-     {
-        cout << "1.Push Value." << endl;
-        cout << "2.Pop Value." << endl;
-        cout << "3.Display All." << endl;
-        cout << "4.Exit." << endl;
-
-        cin >> number;
-
-        if (number == 1)
+        switch (num)
         {
-          cout << "Top the value.";
-          cin >> value;
-           push(value);
+        case 1:
+           cout << "Enter value ." << endl;
+           cin >> value;
+           topValue(value);
+            break;
+        case 2:
+           popValue();
+            break;
+        case 3:
+           displayAll();
+            break;
+        case 4:
+           cout << "Exit Successfully." << endl;
+            break;        
+        
+        default:
+         cout << "Invalid Value Entered." << endl;
+            break;
         }
-        else if (number == 2)
-        {
-            int popped = pop();
-            if (popped != -1)
-                cout << "Popped: " << popped << endl;
-        }
-       else  if (number == 3)
-        {
-            display();
-        }
-        else if (number == 4)
-        {
-            cout << "Exit Successfully from the system." << endl;
-             break;
-        }
-        else {
-            cout << "Enter Correct Choice." << endl;
-        }
-     }
-    return 0;
- }
+    }
 
+}
